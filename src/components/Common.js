@@ -1,45 +1,29 @@
-import styled, { keyframes } from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
+import reset from "styled-reset";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // prettier-ignore
-import {faFileContract, faPaperPlane} from "@fortawesome/free-solid-svg-icons";
+import { faFileContract, faPaperPlane } from "@fortawesome/free-solid-svg-icons";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 
 library.add(faFileContract, faPaperPlane, faGithub);
 
-export const Icon = styled(FontAwesomeIcon)``;
-
-const scroll = keyframes`
-    0% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0;
-        transform: translate(-50%, 46px);
-    }
-`;
-
-export const Scroll = styled.div`
-  position: absolute;
-  bottom: 30px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 40px;
-  height: 70px;
-  box-shadow: inset 0 0 0 1px #45aaf2;
-  border-radius: 25px;
-  &::before {
-    position: absolute;
-    bottom: 50px;
-    left: 50%;
-    transform: translateX(-50%);
-    content: "";
-    width: 8px;
-    height: 8px;
-    background: #45aaf2;
-    border-radius: 4px;
-    animation-duration: 1.5s;
-    animation-iteration-count: infinite;
-    animation-name: ${scroll};
+export const GlobalStyle = createGlobalStyle`
+  ${reset}
+  * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, segoe ui, Roboto, Helvetica, Arial, sans-serif, apple color emoji, segoe ui emoji, segoe ui symbol;
   }
 `;
+
+export const Row = styled.div`
+  margin-bottom: 60px;
+  &:nth-last-child(1) {
+    margin-bottom: 0px;
+  }
+`;
+
+export const Icon = styled(FontAwesomeIcon)``;

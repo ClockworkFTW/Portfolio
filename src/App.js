@@ -1,29 +1,36 @@
-import React from "react";
-import { createGlobalStyle } from "styled-components";
-import reset from "styled-reset";
+import React, { useState, useEffect } from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-import Home from "./routes/Home";
-import About from "./routes/About";
-import Projects from "./routes/Projects";
+import { getStats } from "./services/stats";
 
-const GlobalStyle = createGlobalStyle`
-  ${reset}
-  * {
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, segoe ui, Roboto, Helvetica, Arial, sans-serif, apple color emoji, segoe ui emoji, segoe ui symbol;
-  }
-`;
+import { GlobalStyle } from "./components/Common";
+import Header from "./components/Header";
+import Portfolio from "./routes/Portfolio";
+import Statistics from "./routes/Statistics";
 
-const App = () => (
-  <>
-    <GlobalStyle />
-    <Home />
-    <About />
-    <Projects />
-  </>
-);
+const App = () => {
+  const [stats, setStats] = useState(null);
+
+  useEffect(() => {
+    getStats(setStats);
+  }, []);
+
+  return stats ? (
+    <Router>
+      <GlobalStyle />
+      <Header />
+      <Switch>
+        <Route path="/statistics">
+          <Statistics />
+        </Route>
+        <Route path="/">
+          <Portfolio stats={stats} />
+        </Route>
+      </Switch>
+    </Router>
+  ) : (
+    <h1>LOADING</h1>
+  );
+};
 
 export default App;
