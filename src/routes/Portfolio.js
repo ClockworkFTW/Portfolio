@@ -11,13 +11,13 @@ import Scroller from "../components/Scroller";
 
 const Portfolio = ({ stats }) => (
   <div>
-    <Section>
+    <Section name="home">
       <>
         <Home />
         <Scroller />
       </>
     </Section>
-    <Section background="#F7F7F8">
+    <Section name="about" background="#F7F7F8">
       <>
         <Row>
           <Introduction />
@@ -27,7 +27,7 @@ const Portfolio = ({ stats }) => (
         </Row>
       </>
     </Section>
-    <Section>
+    <Section name="projects">
       <Projects />
     </Section>
   </div>
