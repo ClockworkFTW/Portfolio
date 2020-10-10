@@ -6,6 +6,8 @@ import styled from "styled-components";
 
 import "./index.css";
 
+import Controls from "../Controls";
+
 const links = ["home", "about", "projects"];
 
 const Header = () => {
@@ -14,22 +16,31 @@ const Header = () => {
 
   return (
     <Wrapper>
-      <Container>
+      <Container isStats={!scrollable}>
         <h1 style={{ fontSize: "30px" }}>&#x1F9A5;</h1>
-        <div>
-          {links.map((link) =>
+        {!scrollable && <Controls />}
+        <Links>
+          {links.map((link, i) =>
             scrollable ? (
-              <ScrollLink to={link} spy={true} smooth={true} duration={500}>
+              <ScrollLink
+                key={i}
+                to={link}
+                spy={true}
+                smooth={true}
+                duration={500}
+              >
                 {link}
               </ScrollLink>
             ) : (
-              <HashLink to={`/#${link}`}>{link}</HashLink>
+              <HashLink key={i} to={`/#${link}`}>
+                {link}
+              </HashLink>
             )
           )}
           <RouterLink to="/statistics" active={!scrollable}>
             Statistics
           </RouterLink>
-        </div>
+        </Links>
       </Container>
     </Wrapper>
   );
@@ -46,12 +57,19 @@ const Wrapper = styled.div`
 `;
 
 const Container = styled.div`
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 1000px;
-  margin: 0 auto;
+  max-width: ${({ isStats }) => (isStats ? "none" : "1000px")};
+  margin: ${({ isStats }) => (isStats ? "0 20px" : "0 auto")};
   padding: 10px 0;
+`;
+
+const Links = styled.div`
+  @media (max-width: 800px) {
+    display: none;
+  }
 `;
 
 const ScrollLink = styled(SL)`

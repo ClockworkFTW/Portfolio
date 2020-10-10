@@ -27,3 +27,13 @@ export const Row = styled.div`
 `;
 
 export const Icon = styled(FontAwesomeIcon)``;
+
+export const Statistic = styled.li`
+  margin-bottom: 8px;
+  font-size: 12px;
+  color: ${({ color }) => color};
+`;
+
+export const Bold = styled.span`
+  font-weight: 700;
+`;

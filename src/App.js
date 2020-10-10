@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
 
-import { getStats } from "./services/stats";
+import { fetchStatistics } from "./reducers/statistics";
 
 import { GlobalStyle } from "./components/Common";
 import Header from "./components/Header";
@@ -9,22 +10,24 @@ import Portfolio from "./routes/Portfolio";
 import Statistics from "./routes/Statistics";
 
 const App = () => {
-  const [stats, setStats] = useState(null);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    getStats(setStats);
-  }, []);
+    dispatch(fetchStatistics());
+  }, [dispatch]);
 
-  return stats ? (
+  const { pending, data, error } = useSelector((state) => state.statistics);
+
+  return data ? (
     <Router>
       <GlobalStyle />
       <Header />
       <Switch>
         <Route path="/statistics">
-          <Statistics />
+          <Statistics stats={data} />
         </Route>
         <Route path="/">
-          <Portfolio stats={stats} />
+          <Portfolio stats={data} />
         </Route>
       </Switch>
     </Router>

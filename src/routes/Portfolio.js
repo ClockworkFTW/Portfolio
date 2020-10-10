@@ -9,7 +9,7 @@ import Section from "../components/Section";
 import { Row } from "../components/Common";
 import Scroller from "../components/Scroller";
 
-const Portfolio = ({ stats }) => (
+const Portfolio = () => (
   <div>
     <Section name="home">
       <>
