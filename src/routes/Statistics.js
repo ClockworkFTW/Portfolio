@@ -40,6 +40,8 @@ const Statistics = () => {
     return days;
   });
 
+  console.log(statistics);
+
   return (
     <Container>
       <Header>
@@ -57,8 +59,9 @@ const Statistics = () => {
 };
 
 const Container = styled.div`
-  margin-top: 51px;
+  height: calc(100vh - 51px);
   background: #1e1f24;
+  overflow: scroll;
 `;
 
 const Header = styled.ul`

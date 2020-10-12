@@ -3,10 +3,17 @@ import reset from "styled-reset";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // prettier-ignore
-import { faFileContract, faPaperPlane } from "@fortawesome/free-solid-svg-icons";
+import { faFileContract, faPaperPlane, faAngleLeft, faAngleRight, faBars } from "@fortawesome/free-solid-svg-icons";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 
-library.add(faFileContract, faPaperPlane, faGithub);
+library.add(
+  faFileContract,
+  faPaperPlane,
+  faGithub,
+  faAngleLeft,
+  faAngleRight,
+  faBars
+);
 
 export const GlobalStyle = createGlobalStyle`
   ${reset}
