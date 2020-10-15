@@ -23,7 +23,10 @@ const Wrapper = styled.div`
 const Container = styled.div`
   max-width: 1000px;
   margin: 0 auto;
-  padding: 60px 20px;
+  padding: 200px 20px;
+  @media (max-width: 800px) {
+    padding: 70px 20px;
+  }
 `;
 
 export default Section;

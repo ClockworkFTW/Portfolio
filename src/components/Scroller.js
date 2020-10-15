@@ -1,13 +1,13 @@
 import styled, { keyframes } from "styled-components";
 
 const scroll = keyframes`
-    0% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0;
-        transform: translate(-50%, 46px);
-    }
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, 46px);
+  }
 `;
 
 const Scroller = styled.div`
@@ -32,6 +32,9 @@ const Scroller = styled.div`
     animation-duration: 1.5s;
     animation-iteration-count: infinite;
     animation-name: ${scroll};
+  }
+  @media (max-width: 800px) {
+    display: none;
   }
 `;
 

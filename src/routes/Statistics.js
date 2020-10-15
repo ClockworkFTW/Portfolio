@@ -8,6 +8,8 @@ import Day from "../components/Day";
 const Statistics = () => {
   const headers = moment.weekdays();
 
+  console.time();
+
   const statistics = useSelector((state) => {
     // prettier-ignore
     const start = moment().add(state.offset, "month").startOf("month").startOf("week");
@@ -40,13 +42,13 @@ const Statistics = () => {
     return days;
   });
 
-  console.log(statistics);
+  console.timeEnd();
 
   return (
     <Container>
       <Header>
         {headers.map((day, i) => (
-          <WeekDay key={i}>{day}</WeekDay>
+          <WeekDay key={day}>{day}</WeekDay>
         ))}
       </Header>
       <Body>

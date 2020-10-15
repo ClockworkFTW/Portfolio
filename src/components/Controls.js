@@ -40,6 +40,7 @@ const Container = styled.span`
 const Date = styled.h1`
   margin: 0 10px;
   font-weight: 700;
+  color: #111111;
 `;
 
 const Button = styled.button`

@@ -1,4 +1,5 @@
 import { getStatistics } from "../services/statistics";
+import { sleep } from "../util";
 
 const FETCH_STATISTICS_PENDING = "FETCH_STATISTICS_PENDING";
 const FETCH_STATISTICS_SUCCESS = "FETCH_STATISTICS_SUCCESS";
@@ -22,6 +23,7 @@ export const fetchStatistics = () => async (dispatch) => {
   dispatch(fetchStatisticsPending());
   try {
     const statistics = await getStatistics();
+    await sleep(3000);
     dispatch(fetchStatisticsSuccess(statistics));
   } catch (error) {
     dispatch(fetchStatisticsFailure(error));

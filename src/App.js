@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { fetchStatistics } from "./reducers/statistics";
 
 import { GlobalStyle } from "./components/Common";
+import Loader from "./components/Loader";
 import Header from "./components/Header";
 import Portfolio from "./routes/Portfolio";
 import Statistics from "./routes/Statistics";
@@ -16,23 +17,26 @@ const App = () => {
     dispatch(fetchStatistics());
   }, [dispatch]);
 
-  const { pending, data, error } = useSelector((state) => state.statistics);
+  const { data } = useSelector((state) => state.statistics);
 
-  return data ? (
+  return (
     <Router>
       <GlobalStyle />
-      <Header />
-      <Switch>
-        <Route path="/statistics">
-          <Statistics stats={data} />
-        </Route>
-        <Route path="/">
-          <Portfolio stats={data} />
-        </Route>
-      </Switch>
+      <Loader />
+      {data ? (
+        <>
+          <Header />
+          <Switch>
+            <Route path="/statistics">
+              <Statistics />
+            </Route>
+            <Route path="/">
+              <Portfolio />
+            </Route>
+          </Switch>
+        </>
+      ) : null}
     </Router>
-  ) : (
-    <h1>LOADING</h1>
   );
 };
 
