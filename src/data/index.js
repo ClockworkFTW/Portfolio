@@ -1,6 +1,6 @@
 import skrawld_io_gif from "../assets/skrawld_io.gif";
 import lightning_poll_gif from "../assets/lightning_poll.gif";
-import snap_spots_gif from '../assets/snap_spots.gif'
+import snap_spots_gif from "../assets/snap_spots.gif";
 
 export const links = [
   { title: "Resume", href: "", iconType: "fas", iconName: "file-contract" },
@@ -71,7 +71,8 @@ export const projects = [
     emoji: { symbol: "🧙‍♂️", label: "man-mage" },
     demo: "demo",
     code: "code",
-    description: "A portfolio site to showcase all my web development projects, resume, and links to code repositories. Additionally, I added a personal statistics dashboard which pulls data from the apps and services I use on a daily basis. This project was an opportunity for me to experiment with responsive design and also test my skills in integrating various API's.",
+    description:
+      "A portfolio site to showcase all my web development projects, resume, and links to code repositories. Additionally, I added a personal statistics dashboard which pulls data from the apps and services I use on a daily basis. This project was an opportunity for me to experiment with responsive design and also test my skills in integrating various API's.",
     image: "",
     credits: [
       { name: "Sindre Sorhus", link: "https://sindresorhus.com/" },

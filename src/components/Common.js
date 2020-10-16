@@ -2,9 +2,16 @@ import styled, { createGlobalStyle } from "styled-components";
 import reset from "styled-reset";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// prettier-ignore
-import { faFileContract, faPaperPlane, faAngleLeft, faAngleRight, faBars, faLink } from "@fortawesome/free-solid-svg-icons";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import {
+  faFileContract,
+  faPaperPlane,
+  faAngleLeft,
+  faAngleRight,
+  faBars,
+  faTimes,
+  faLink,
+} from "@fortawesome/free-solid-svg-icons";
 
 library.add(
   faFileContract,
@@ -13,6 +20,7 @@ library.add(
   faAngleLeft,
   faAngleRight,
   faBars,
+  faTimes,
   faLink
 );
 

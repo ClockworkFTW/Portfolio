@@ -1,7 +1,5 @@
 import React, { useState } from "react";
-import { Link as SL } from "react-scroll";
-import { HashLink as HL } from "react-router-hash-link";
-import { Link as RL, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import styled from "styled-components";
 
 import "./index.css";
@@ -9,77 +7,27 @@ import "./index.css";
 import { Icon } from "../Common";
 import Emoji from "../Emoji";
 import Controls from "../Controls";
-
-const links = ["home", "about", "projects"];
+import Links from "./Links";
 
 const Header = () => {
   const { pathname } = useLocation();
   const isStats = pathname === "/statistics";
-
   const [toggle, setToggle] = useState(false);
-
   return (
     <Wrapper isStats={isStats}>
       <Container isStats={isStats}>
         <Emoji symbol="🐳" label="spouting-whale" size="30px" />
         {isStats && <Controls />}
-        <Links>
-          {links.map((link, i) =>
-            !isStats ? (
-              <ScrollLink
-                key={i}
-                to={link}
-                spy={true}
-                smooth={true}
-                duration={500}
-              >
-                {link}
-              </ScrollLink>
-            ) : (
-              <HashLink key={i} to={`/#${link}`}>
-                {link}
-              </HashLink>
-            )
-          )}
-          <RouterLink to="/statistics" active={isStats}>
-            Statistics
-          </RouterLink>
-        </Links>
+        <Navbar>
+          <Links isStats={isStats} />
+        </Navbar>
         <MenuButton onClick={() => setToggle(!toggle)}>
-          <Icon icon={["fas", "bars"]} />
+          <Icon icon={["fas", toggle ? "times" : "bars"]} />
         </MenuButton>
       </Container>
       {toggle && (
         <Dropdown>
-          {links.map((link, i) =>
-            !isStats ? (
-              <ScrollLink
-                key={i}
-                to={link}
-                spy={true}
-                smooth={true}
-                duration={500}
-                onClick={() => setToggle(false)}
-              >
-                {link}
-              </ScrollLink>
-            ) : (
-              <HashLink
-                key={i}
-                to={`/#${link}`}
-                onClick={() => setToggle(false)}
-              >
-                {link}
-              </HashLink>
-            )
-          )}
-          <RouterLink
-            to="/statistics"
-            active={isStats}
-            onClick={() => setToggle(false)}
-          >
-            Statistics
-          </RouterLink>
+          <Links isStats={isStats} />
         </Dropdown>
       )}
     </Wrapper>
@@ -107,7 +55,7 @@ const Container = styled.div`
   transition: max-width 0.5s cubic-bezier(0.65, 0, 0.35, 1);
 `;
 
-const Links = styled.div`
+const Navbar = styled.div`
   @media (max-width: 800px) {
     display: none;
   }
@@ -117,50 +65,6 @@ const Dropdown = styled.div`
   padding-bottom: 10px;
   @media (min-width: 800px) {
     display: none;
-  }
-`;
-
-const ScrollLink = styled(SL)`
-  display: inline-block;
-  margin-left: 20px;
-  text-transform: capitalize;
-  color: #4a4a4a;
-  @media (max-width: 800px) {
-    display: block;
-    padding: 10px 0;
-  }
-  &:hover {
-    cursor: pointer;
-    color: #45aaf2;
-  }
-`;
-
-const HashLink = styled(HL)`
-  display: inline-block;
-  margin-left: 20px;
-  text-transform: capitalize;
-  color: #4a4a4a;
-  text-decoration: none;
-  @media (max-width: 800px) {
-    display: block;
-    padding: 10px 0;
-  }
-  &:hover {
-    color: #45aaf2;
-  }
-`;
-
-const RouterLink = styled(RL)`
-  margin-left: 20px;
-  text-transform: capitalize;
-  color: ${({ active }) => (active ? "#45aaf2" : "#4a4a4a;")};
-  text-decoration: none;
-  @media (max-width: 800px) {
-    display: block;
-    padding: 10px 0;
-  }
-  &:hover {
-    color: #45aaf2;
   }
 `;
 
