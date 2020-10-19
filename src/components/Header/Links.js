@@ -16,12 +16,16 @@ const Links = ({ isStats, toggle, setToggle }) => (
           spy={true}
           smooth={true}
           duration={500}
-          onClick={() => setToggle(!toggle)}
+          onClick={() => (toggle ? setToggle(false) : null)}
         >
           {link}
         </ScrollLink>
       ) : (
-        <HashLink key={i} to={`/#${link}`} onClick={() => setToggle(!toggle)}>
+        <HashLink
+          key={i}
+          to={`/#${link}`}
+          onClick={() => (toggle ? setToggle(false) : null)}
+        >
           {link}
         </HashLink>
       )
@@ -29,7 +33,7 @@ const Links = ({ isStats, toggle, setToggle }) => (
     <RouterLink
       to="/statistics"
       active={isStats}
-      onClick={() => setToggle(!toggle)}
+      onClick={() => (toggle ? setToggle(false) : null)}
     >
       Statistics
     </RouterLink>

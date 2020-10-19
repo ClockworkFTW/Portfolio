@@ -3,9 +3,25 @@ import lightning_poll_gif from "../assets/lightning_poll.gif";
 import snap_spots_gif from "../assets/snap_spots.gif";
 
 export const links = [
-  { title: "Resume", href: "", iconType: "fas", iconName: "file-contract" },
-  { title: "Code", href: "", iconType: "fab", iconName: "github" },
-  { title: "Contact", href: "", iconType: "fas", iconName: "paper-plane" },
+  {
+    title: "Resume",
+    href:
+      "https://docs.google.com/document/d/1iQX9wtfGwuBE-999QWens4Eh0Pc4xORfvA87KsfaHVQ/edit?usp=sharing",
+    iconType: "fas",
+    iconName: "file-contract",
+  },
+  {
+    title: "Code",
+    href: "https://github.com/ClockworkFTW",
+    iconType: "fab",
+    iconName: "github",
+  },
+  {
+    title: "Contact",
+    href: "mailto: jnboyle1995@gmail.com",
+    iconType: "fas",
+    iconName: "paper-plane",
+  },
 ];
 
 export const technologies = [

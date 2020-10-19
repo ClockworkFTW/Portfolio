@@ -24,19 +24,31 @@ const Introduction = () => {
         <span style={{ fontWeight: 600 }}>
           My first name is John, but my friends call me Nik.
         </span>{" "}
-        Currently, I'm <Link>looking for a junior developer position</Link>. In
-        the last 30 days, I've logged {statistics.time} of coding time and
-        pushed <Link>{statistics.commits.length} commits</Link> to GitHub. I've
-        taken {statistics.steps.count} steps over a distance of{" "}
+        Currently, I'm{" "}
+        <Link
+          href="https://docs.google.com/document/d/1iQX9wtfGwuBE-999QWens4Eh0Pc4xORfvA87KsfaHVQ/edit?usp=sharing"
+          target="_blank"
+        >
+          looking for a junior developer position
+        </Link>
+        . In the last 30 days, I've logged {statistics.time} of coding time and
+        pushed{" "}
+        <Link href="https://github.com/ClockworkFTW" target="_blank">
+          {statistics.commits.length} commits
+        </Link>{" "}
+        to GitHub. I've taken {statistics.steps.count} steps over a distance of{" "}
         {statistics.steps.distance} miles, visiting {statistics.places.length}{" "}
         places along the way. My most played song is{" "}
-        <Link>
+        <Link href="https://www.last.fm/user/ChiefBubbles" target="_blank">
           "{statistics.tracks.tracksTop.name}" by{" "}
           {statistics.tracks.tracksTop.artist}
         </Link>
         , and I've listened to {statistics.tracks.tracksTotal.length} songs
         overall. I am reading{" "}
-        <Link>
+        <Link
+          href="https://www.goodreads.com/user/show/65510527-john-boyle"
+          target="_blank"
+        >
           {statistics.books ? statistics.books.length : "no"} book
           {statistics.books ? (statistics.books.length > 1 ? "s" : "") : ""}
         </Link>{" "}
@@ -71,8 +83,7 @@ const Body = styled.p`
 
 const Link = styled.a`
   color: #45aaf2;
-  /* text-decoration: underline;
-  text-decoration-color: #45aaf2; */
+  text-decoration: none;
   &:hover {
     cursor: pointer;
   }

@@ -16,7 +16,7 @@ const Header = () => {
   return (
     <Wrapper isStats={isStats}>
       <Container isStats={isStats}>
-        <Emoji symbol="🐳" label="spouting-whale" size="30px" />
+        <Emoji symbol="🧙‍♂️" label="man-mage" size="30px" />
         {isStats && <Controls />}
         <Navbar>
           <Links isStats={isStats} />
