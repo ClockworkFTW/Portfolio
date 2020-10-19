@@ -14,7 +14,7 @@ const Steps = ({ activities }) => {
   return render ? (
     <Statistic color="#ffffff">
       <Emoji symbol="👟" label="running-shoe" />
-      <Bold>{steps.value}</Bold> steps ({distance.value.toFixed(1)}{" "}
+      <Bold>{steps.value}</Bold> steps ({Number(distance.value).toFixed(1)}{" "}
       {distance.unit})
     </Statistic>
   ) : null;

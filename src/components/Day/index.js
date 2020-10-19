@@ -10,6 +10,7 @@ import Places from "./Places";
 import Time from "./Time";
 import Todos from "./Todos";
 import Tracks from "./Tracks";
+import Sleep from "./Sleep";
 import Steps from "./Steps";
 import Weight from "./Weight";
 import Workouts from "./Workouts";
@@ -23,6 +24,7 @@ const Day = ({ day }) => (
       {day.activities.length !== 0 && <Steps activities={day.activities} />}
       {day.activities.length !== 0 && <Energy activities={day.activities} />}
       {day.diet.length !== 0 && <Diet diet={day.diet[0]} />}
+      {day.activities.length !== 0 && <Sleep activities={day.activities} />}
       {day.workouts.length !== 0 && <Workouts workouts={day.workouts} />}
       {day.books.length !== 0 && <Books books={day.books} />}
       {day.places.length !== 0 && <Places places={day.places} />}

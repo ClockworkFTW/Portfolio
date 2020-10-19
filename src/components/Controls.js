@@ -14,11 +14,11 @@ const Controls = () => {
   return (
     <Container>
       <Button onClick={() => dispatch(setOffset(offset - 1))}>
-        <Icon icon={["fas", "angle-left"]} />
+        <Icon icon={["fal", "angle-left"]} />
       </Button>
       <Date>{moment().add(offset, "month").format("MMM YYYY")}</Date>
       <Button onClick={() => dispatch(setOffset(offset + 1))}>
-        <Icon icon={["fas", "angle-right"]} />
+        <Icon icon={["fal", "angle-right"]} />
       </Button>
     </Container>
   );
@@ -31,7 +31,6 @@ const Container = styled.span`
   transform: translate(-50%, -50%);
   display: flex;
   align-items: center;
-  margin: 0 6px;
   :nth-child(1) {
     margin: 0 6px 0 0;
   }
@@ -39,7 +38,6 @@ const Container = styled.span`
 
 const Date = styled.h1`
   margin: 0 10px;
-  font-weight: 700;
   color: #111111;
 `;
 
@@ -48,12 +46,11 @@ const Button = styled.button`
   outline: none;
   background: none;
   border: none;
-  border-radius: 8px;
   font-size: 20px;
   color: #111111;
   &:hover {
     cursor: pointer;
-    background: #f7f7f8;
+    color: #45aaf2;
   }
 `;
 

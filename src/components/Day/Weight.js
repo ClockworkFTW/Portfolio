@@ -14,7 +14,7 @@ const Weight = ({ activities }) => {
   return render ? (
     <Statistic color="#ffffff">
       <Emoji symbol="⚖️" label="running-shoe" />
-      <Bold>{weight.value.toFixed(1)}</Bold> {weight.unit} (
+      <Bold>{Number(weight.value).toFixed(1)}</Bold> {weight.unit} (
       {Math.round(bfp.value)}
       {bfp.unit})
     </Statistic>

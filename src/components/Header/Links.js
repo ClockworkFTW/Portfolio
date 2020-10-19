@@ -6,20 +6,31 @@ import styled from "styled-components";
 
 const links = ["home", "about", "projects"];
 
-const Links = ({ isStats }) => (
+const Links = ({ isStats, toggle, setToggle }) => (
   <div>
     {links.map((link, i) =>
       !isStats ? (
-        <ScrollLink key={i} to={link} spy={true} smooth={true} duration={500}>
+        <ScrollLink
+          key={i}
+          to={link}
+          spy={true}
+          smooth={true}
+          duration={500}
+          onClick={() => setToggle(!toggle)}
+        >
           {link}
         </ScrollLink>
       ) : (
-        <HashLink key={i} to={`/#${link}`}>
+        <HashLink key={i} to={`/#${link}`} onClick={() => setToggle(!toggle)}>
           {link}
         </HashLink>
       )
     )}
-    <RouterLink to="/statistics" active={isStats}>
+    <RouterLink
+      to="/statistics"
+      active={isStats}
+      onClick={() => setToggle(!toggle)}
+    >
       Statistics
     </RouterLink>
   </div>

@@ -22,7 +22,7 @@ const Heart = ({ activities }) => {
       <Bold>
         {resting.value} - {walking.value}
       </Bold>{" "}
-      ({variability.value.toFixed(1)} {variability.unit})
+      ({Number(variability.value).toFixed(1)} {variability.unit})
     </Statistic>
   ) : null;
 };

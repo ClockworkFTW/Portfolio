@@ -78,7 +78,7 @@ export const getSteps = (statistics) => {
         cur.type === "Steps" &&
         moment(cur.date).isAfter(moment().subtract(30, "days"))
       ) {
-        return acc + cur.value;
+        return acc + Number(cur.value);
       } else {
         return acc;
       }
@@ -89,7 +89,7 @@ export const getSteps = (statistics) => {
         cur.type === "Walking + Running Distance" &&
         moment(cur.date).isAfter(moment().subtract(30, "days"))
       ) {
-        return acc + cur.value;
+        return acc + Number(cur.value);
       } else {
         return acc;
       }

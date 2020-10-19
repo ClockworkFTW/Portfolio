@@ -16,7 +16,10 @@ const Energy = ({ activities }) => {
   return render ? (
     <Statistic color="#ffffff">
       <Emoji symbol="🔥" label="fire" />
-      <Bold>{Math.round(active.value + resting.value)}</Bold> calories out
+      <Bold>
+        {Math.round(Number(active.value) + Number(resting.value))}
+      </Bold>{" "}
+      calories out
     </Statistic>
   ) : null;
 };

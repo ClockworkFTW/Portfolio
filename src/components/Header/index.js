@@ -22,12 +22,12 @@ const Header = () => {
           <Links isStats={isStats} />
         </Navbar>
         <MenuButton onClick={() => setToggle(!toggle)}>
-          <Icon icon={["fas", toggle ? "times" : "bars"]} />
+          <Icon icon={["fal", toggle ? "times" : "bars"]} />
         </MenuButton>
       </Container>
       {toggle && (
         <Dropdown>
-          <Links isStats={isStats} />
+          <Links isStats={isStats} toggle={toggle} setToggle={setToggle} />
         </Dropdown>
       )}
     </Wrapper>

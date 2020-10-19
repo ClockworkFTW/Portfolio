@@ -6,12 +6,15 @@ import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import {
   faFileContract,
   faPaperPlane,
+  faLink,
+} from "@fortawesome/free-solid-svg-icons";
+
+import {
   faAngleLeft,
   faAngleRight,
   faBars,
   faTimes,
-  faLink,
-} from "@fortawesome/free-solid-svg-icons";
+} from "@fortawesome/pro-light-svg-icons";
 
 library.add(
   faFileContract,
