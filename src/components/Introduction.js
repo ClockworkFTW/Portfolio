@@ -49,10 +49,10 @@ const Introduction = () => {
           href="https://www.goodreads.com/user/show/65510527-john-boyle"
           target="_blank"
         >
-          {statistics.books ? statistics.books.length : "no"} book
-          {statistics.books ? (statistics.books.length > 1 ? "s" : "") : ""}
+          {statistics.books.length === 0 ? "no" : statistics.books.length} book
+          {statistics.books.length === 1 ? "" : "s"}
         </Link>{" "}
-        at the moment:{" "}
+        at the moment{statistics.books.length === 0 ? "." : ":"}{" "}
         {statistics.books
           ? statistics.books.map(
               (book, i) =>

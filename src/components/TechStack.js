@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import {technologies} from '../data'
+import { technologies } from "../data";
 
 const TechStack = () => (
   <Container>
@@ -14,8 +14,8 @@ const TechStack = () => (
         As an aspiring developer, I am constantly honing my skillset and
         learning new tools to add to my kit.
       </Body>
-      {technologies.map((tech) => (
-        <Tech>
+      {technologies.map((tech, i) => (
+        <Tech key={i}>
           <Name>{tech.name}</Name>
           <Icon className={tech.icon} />
         </Tech>

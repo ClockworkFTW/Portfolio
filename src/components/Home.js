@@ -14,8 +14,8 @@ const Home = () => (
       As a tech fanatic, building web applications is my ultimate passion.
     </More>
     <Links>
-      {links.map(({ title, href, iconType, iconName }) => (
-        <Link href={href} target="_blank">
+      {links.map(({ title, href, iconType, iconName }, i) => (
+        <Link key={i} href={href} target="_blank">
           <Icon icon={[iconType, iconName]} />
           <span style={{ marginLeft: "10px" }}>{title}</span>
         </Link>

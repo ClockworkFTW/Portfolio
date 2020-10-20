@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const base_url = "http://localhost:3005";
+const base_url = "/api";
 
 export const getStatistics = async () => {
   try {

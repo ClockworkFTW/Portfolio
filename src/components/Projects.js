@@ -8,8 +8,8 @@ import Emoji from "./Emoji";
 
 const Projects = () => (
   <Container>
-    {projects.map((project) => (
-      <Project>
+    {projects.map((project, i) => (
+      <Project key={i}>
         <Name mobile={true}>
           <Emoji symbol={project.emoji.symbol} label={project.emoji.label} />
           {project.name}

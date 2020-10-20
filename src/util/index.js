@@ -28,7 +28,7 @@ export const getBooks = (statistics) => {
 
     return books;
   } else {
-    return null;
+    return [];
   }
 };
 
@@ -60,7 +60,7 @@ export const getTime = (statistics) => {
 
     return total;
   } else {
-    return null;
+    return "0 hours";
   }
 };
 

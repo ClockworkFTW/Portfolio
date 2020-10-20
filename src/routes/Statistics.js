@@ -8,8 +8,6 @@ import Day from "../components/Day";
 const Statistics = () => {
   const headers = moment.weekdays();
 
-  console.time();
-
   const statistics = useSelector((state) => {
     // prettier-ignore
     const start = moment().add(state.offset, "month").startOf("month").startOf("week");
@@ -33,7 +31,7 @@ const Statistics = () => {
       let filteredData = { date, isSameMonth };
       for (const key in data) {
         filteredData[key] = data[key].filter((e) =>
-          moment(e.date).isSame(moment(day), "day")
+          moment.utc(e.date).isSame(moment(day), "day")
         );
       }
       return filteredData;
@@ -41,8 +39,6 @@ const Statistics = () => {
 
     return days;
   });
-
-  console.timeEnd();
 
   return (
     <Container>

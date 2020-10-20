@@ -1,6 +1,7 @@
 import skrawld_io_gif from "../assets/skrawld_io.gif";
 import lightning_poll_gif from "../assets/lightning_poll.gif";
 import snap_spots_gif from "../assets/snap_spots.gif";
+import portfolio_gif from "../assets/portfolio.gif";
 
 export const links = [
   {
@@ -89,7 +90,7 @@ export const projects = [
     code: "code",
     description:
       "A portfolio site to showcase all my web development projects, resume, and links to code repositories. Additionally, I added a personal statistics dashboard which pulls data from the apps and services I use on a daily basis. This project was an opportunity for me to experiment with responsive design and also test my skills in integrating various API's.",
-    image: "",
+    image: portfolio_gif,
     credits: [
       { name: "Sindre Sorhus", link: "https://sindresorhus.com/" },
       { name: "Alec Lomas", link: "https://www.lowmess.com/" },
