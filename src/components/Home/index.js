@@ -7,6 +7,22 @@ import { Highlight } from "../Common";
 import Particles from "./Particles";
 import Introduction from "./Introduction";
 
+export const links = [
+  {
+    name: "Resume",
+    href:
+      "https://docs.google.com/document/d/1iQX9wtfGwuBE-999QWens4Eh0Pc4xORfvA87KsfaHVQ/edit?usp=sharing",
+  },
+  {
+    name: "Code",
+    href: "https://github.com/ClockworkFTW",
+  },
+  {
+    name: "Linkedin",
+    href: "https://www.linkedin.com/in/john-nikolas-boyle/",
+  },
+];
+
 const cVariants = {
   visible: {
     opacity: 1,
@@ -48,9 +64,9 @@ const Home = ({ section }) => {
             <Introduction />
           </motion.div>
           <Links variants={tVariants}>
-            <Link>Linkedin</Link>
-            <Link>Github</Link>
-            <Link>Resume</Link>
+            {links.map((link) => (
+              <Link href={link.href}>{link.name}</Link>
+            ))}
           </Links>
         </Container>
       </Wrapper>

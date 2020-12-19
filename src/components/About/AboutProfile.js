@@ -1,11 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 
-import profile from "../../assets/profile.jpg";
-
 export default () => (
   <Container>
-    <Content url={profile} />
+    <Content url="https://drive.google.com/uc?export=view&id=1NXTc8KIY7qOpVqZvTaYz9WZuiHn1ZgQa" />
   </Container>
 );
 
