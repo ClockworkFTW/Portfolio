@@ -32,7 +32,7 @@ export const fetchStatistics = () => async (dispatch) => {
 
 const INITIAL_STATE = { pending: false, data: null, error: null };
 
-const statisticsReducer = (state = INITIAL_STATE, action) => {
+export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case FETCH_STATISTICS_PENDING:
       return { ...state, pending: true, error: null };
@@ -44,5 +44,3 @@ const statisticsReducer = (state = INITIAL_STATE, action) => {
       return state;
   }
 };
-
-export default statisticsReducer;

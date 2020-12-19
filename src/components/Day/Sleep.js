@@ -1,17 +1,15 @@
 import React from "react";
+import moment from "moment";
 
 import { Statistic, Bold } from "../Common";
 import Emoji from "../Emoji";
 
-const Sleep = ({ activities }) => {
-  const sleep = activities.find((activity) => activity.type === "Sleep");
-
-  return sleep ? (
-    <Statistic color="#a55eea">
+export default ({ sleep }) => {
+  const hours = moment.duration(sleep.duration, "seconds").asHours().toFixed(1);
+  return (
+    <Statistic color="#b445d5">
       <Emoji symbol="💤" label="zzz" />
-      <Bold>{sleep.duration}</Bold> {sleep.unit}
+      <Bold>{hours}</Bold> hours
     </Statistic>
-  ) : null;
+  );
 };
-
-export default Sleep;

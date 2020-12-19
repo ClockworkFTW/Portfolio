@@ -3,22 +3,10 @@ import React from "react";
 import { Statistic, Bold } from "../Common";
 import Emoji from "../Emoji";
 
-const Weight = ({ activities }) => {
-  const weight = activities.find((activity) => activity.type === "Weight");
-  const bfp = activities.find(
-    (activity) => activity.type === "Body Fat Percentage"
-  );
-
-  const render = weight && bfp;
-
-  return render ? (
-    <Statistic color="#ffffff">
-      <Emoji symbol="⚖️" label="running-shoe" />
-      <Bold>{Number(weight.value).toFixed(1)}</Bold> {weight.unit} (
-      {Math.round(bfp.value)}
-      {bfp.unit})
-    </Statistic>
-  ) : null;
-};
-
-export default Weight;
+export default ({ weight }) => (
+  <Statistic color="#ee4488">
+    <Emoji symbol="⚖️" label="running-shoe" />
+    <Bold>{Number(weight.weight).toFixed(1)}</Bold> lb (
+    {Math.round(weight.body_fat_percentage)}%)
+  </Statistic>
+);

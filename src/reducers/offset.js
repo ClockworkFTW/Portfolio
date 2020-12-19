@@ -7,7 +7,7 @@ export const setOffset = (offset) => ({
 
 const INITIAL_STATE = 0;
 
-const offsetReducer = (state = INITIAL_STATE, action) => {
+export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case SET_OFFSET:
       return action.payload.offset;
@@ -15,5 +15,3 @@ const offsetReducer = (state = INITIAL_STATE, action) => {
       return state;
   }
 };
-
-export default offsetReducer;

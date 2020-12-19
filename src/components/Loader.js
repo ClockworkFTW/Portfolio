@@ -1,28 +1,23 @@
 import React from "react";
-import { useSelector } from "react-redux";
 import styled, { keyframes } from "styled-components";
 
-const Loader = () => {
-  const { pending } = useSelector((state) => state.statistics);
-  return pending ? (
-    <Wrapper>
-      <Container>
-        <Name>JNB</Name>
-        <LineOne />
-        <LineTwo />
-        <LineThree />
-      </Container>
-    </Wrapper>
-  ) : null;
-};
-
+const Loader = () => (
+  <Wrapper>
+    <Container>
+      <Name>JNB</Name>
+      <LineOne />
+      <LineTwo />
+      <LineThree />
+    </Container>
+  </Wrapper>
+);
 const Wrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100vw;
   height: 100vh;
-  background: #1e1f24;
+  background: #1e202a;
 `;
 
 const Container = styled.div`

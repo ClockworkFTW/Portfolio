@@ -1,3 +1,5 @@
 .active {
-  color: #45aaf2 !important;
+  background: -webkit-linear-gradient(left top, #ff0082 0%, #e60ce8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }

@@ -4,27 +4,20 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import {
-  faFileContract,
-  faPaperPlane,
-  faLink,
-} from "@fortawesome/free-solid-svg-icons";
-
-import {
-  faAngleLeft,
-  faAngleRight,
+  faExternalLinkAlt,
   faBars,
   faTimes,
-} from "@fortawesome/pro-light-svg-icons";
+} from "@fortawesome/free-solid-svg-icons";
+
+import { faAngleLeft, faAngleRight } from "@fortawesome/pro-light-svg-icons";
 
 library.add(
-  faFileContract,
-  faPaperPlane,
   faGithub,
   faAngleLeft,
   faAngleRight,
   faBars,
   faTimes,
-  faLink
+  faExternalLinkAlt
 );
 
 export const GlobalStyle = createGlobalStyle`
@@ -35,6 +28,11 @@ export const GlobalStyle = createGlobalStyle`
   }
   body {
     font-family: -apple-system, BlinkMacSystemFont, segoe ui, Roboto, Helvetica, Arial, sans-serif, apple color emoji, segoe ui emoji, segoe ui symbol;
+    background: #1e202a;
+    font-size: 16px;
+    @media (max-width: 800px) {
+      font-size: 14px;
+    }
   }
 `;
 
@@ -55,4 +53,18 @@ export const Statistic = styled.li`
 
 export const Bold = styled.span`
   font-weight: 700;
+`;
+
+export const Header = styled.h1`
+  margin-bottom: 50px;
+  font-size: 48px;
+  font-weight: 900;
+  text-transform: capitalize;
+`;
+
+export const Highlight = styled.span`
+  opacity: 1;
+  background: -webkit-linear-gradient(left top, #ff0082 0%, #e60ce8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 `;

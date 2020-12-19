@@ -38,7 +38,8 @@ const Container = styled.span`
 
 const Date = styled.h1`
   margin: 0 10px;
-  color: #111111;
+  font-weight: 900;
+  color: #ffffff;
 `;
 
 const Button = styled.button`
@@ -47,10 +48,10 @@ const Button = styled.button`
   background: none;
   border: none;
   font-size: 20px;
-  color: #111111;
+  color: #ffffff;
   &:hover {
     cursor: pointer;
-    color: #45aaf2;
+    color: #ff0082;
   }
 `;
 

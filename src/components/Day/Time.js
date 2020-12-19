@@ -3,13 +3,13 @@ import React from "react";
 import { Statistic, Bold } from "../Common";
 import Emoji from "../Emoji";
 
-const Time = ({ time }) => (
+export default ({ time }) => (
   <>
-    <Statistic color="#f7b731">
+    <Statistic color="#FBBF24">
       <Emoji symbol="⌛" label="hourglass-done" />
       <Bold>{time.total_time}</Bold> screen time
     </Statistic>
-    <Statistic color="#f7b731">
+    <Statistic color="#FBBF24">
       <Emoji symbol="👍" label="thumbs-up" />
       <Bold>{time.all_productive_time}</Bold>
       <Emoji symbol="👎" label="thumbs-down" />
@@ -17,5 +17,3 @@ const Time = ({ time }) => (
     </Statistic>
   </>
 );
-
-export default Time;

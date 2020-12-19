@@ -6,13 +6,20 @@ import styled from "styled-components";
 import Day from "../components/Day";
 
 const Statistics = () => {
+  // Set week day headers
   const headers = moment.weekdays();
 
+  // Format statistics data into calendar view
   const statistics = useSelector((state) => {
-    // prettier-ignore
-    const start = moment().add(state.offset, "month").startOf("month").startOf("week");
-    // prettier-ignore
-    const end = moment().add(state.offset + 1, "month").startOf("month").endOf("week");
+    const start = moment()
+      .add(state.offset, "month")
+      .startOf("month")
+      .startOf("week");
+
+    const end = moment()
+      .add(state.offset + 1, "month")
+      .startOf("month")
+      .endOf("week");
 
     let day = start;
     let days = [];
@@ -22,19 +29,27 @@ const Statistics = () => {
       day = day.add(1, "day");
     }
 
-    const { data } = state.statistics;
+    const { data } = state.calendar;
 
     days = days.map((day) => {
-      const date = moment(day).date();
-      // prettier-ignore
-      const isSameMonth = moment().add(state.offset, "month").isSame(day, "month")
-      let filteredData = { date, isSameMonth };
+      const isSameMonth = moment()
+        .add(state.offset, "month")
+        .isSame(day, "month");
+
+      const date = moment(day).format("YYYY-MM-DD");
+      const num = moment(day).date();
+
+      let mergedData = { date, num, isSameMonth };
+
       for (const key in data) {
-        filteredData[key] = data[key].filter((e) =>
-          moment.utc(e.date).isSame(moment(day), "day")
-        );
+        if (data.hasOwnProperty(key)) {
+          if (key === moment(day).format("YYYY-MM-DD")) {
+            mergedData = { ...mergedData, ...data[key] };
+          }
+        }
       }
-      return filteredData;
+
+      return mergedData;
     });
 
     return days;
@@ -57,16 +72,13 @@ const Statistics = () => {
 };
 
 const Container = styled.div`
-  height: calc(100vh - 51px);
-  background: #1e1f24;
-  overflow: scroll;
+  background: #1e202a;
 `;
 
 const Header = styled.ul`
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  border-top: 1px solid #444444;
-  border-left: 1px solid #444444;
+  border-left: 1px solid #484d66;
   @media (max-width: 800px) {
     display: none;
   }
@@ -75,8 +87,8 @@ const Header = styled.ul`
 const WeekDay = styled.li`
   flex: 1;
   padding: 10px;
-  border-right: 1px solid #444444;
-  border-bottom: 1px solid #444444;
+  border-right: 1px solid #484d66;
+  border-bottom: 1px solid #484d66;
   text-align: center;
   color: #ffffff;
   font-size: 14px;
@@ -86,7 +98,7 @@ const WeekDay = styled.li`
 const Body = styled.ul`
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  border-left: 1px solid #444444;
+  border-left: 1px solid #484d66;
   @media (max-width: 800px) {
     grid-template-columns: repeat(2, 1fr);
   }

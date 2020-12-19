@@ -3,11 +3,9 @@ import React from "react";
 import { Statistic, Bold } from "../Common";
 import Emoji from "../Emoji";
 
-const Commits = ({ commits }) => (
-  <Statistic color="#0fb9b1">
-    <Emoji symbol="💻" label="laptop" />
+export default ({ commits }) => (
+  <Statistic color="#55dd69">
+    <Emoji symbol="🐙" label="octopus" />
     <Bold>{commits.length}</Bold> commit{commits.length > 1 && "s"}
   </Statistic>
 );
-
-export default Commits;

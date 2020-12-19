@@ -3,28 +3,10 @@ import React from "react";
 import { Statistic, Bold } from "../Common";
 import Emoji from "../Emoji";
 
-const Heart = ({ activities }) => {
-  const resting = activities.find(
-    (activity) => activity.type === "Resting Heart Rate"
-  );
-  const walking = activities.find(
-    (activity) => activity.type === "Walking Heart Rate Average"
-  );
-  const variability = activities.find(
-    (activity) => activity.type === "Heart Rate Variability"
-  );
-
-  const render = resting && walking && variability;
-
-  return render ? (
-    <Statistic color="#fc5c65">
-      <Emoji symbol="💖" label="sparkling-heart" />
-      <Bold>
-        {resting.value} - {walking.value}
-      </Bold>{" "}
-      ({Number(variability.value).toFixed(1)} {variability.unit})
-    </Statistic>
-  ) : null;
-};
-
-export default Heart;
+export default ({ heart }) => (
+  <Statistic color="#ee4488">
+    <Emoji symbol="💖" label="sparkling-heart" />
+    <Bold>{Number(heart.resting_heart_rate).toFixed(1)}</Bold> (
+    {Number(heart.heart_rate_variability).toFixed(1)} ms)
+  </Statistic>
+);
