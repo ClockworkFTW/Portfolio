@@ -125,6 +125,7 @@ const Dropdown = styled.div`
 
 const MenuButton = styled.button`
   display: none;
+  padding: 0;
   border: none;
   background: none;
   outline: none;
