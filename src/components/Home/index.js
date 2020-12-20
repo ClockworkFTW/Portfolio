@@ -11,7 +11,7 @@ export const links = [
   {
     name: "Resume",
     href:
-      "https://docs.google.com/document/d/1iQX9wtfGwuBE-999QWens4Eh0Pc4xORfvA87KsfaHVQ/edit?usp=sharing",
+      "https://docs.google.com/document/d/1pFDHDNNck04bK_Om5euI3jGl4XIACueDGAqeffT12j0/edit?usp=sharing",
   },
   {
     name: "Code",
@@ -65,7 +65,9 @@ const Home = ({ section }) => {
           </motion.div>
           <Links variants={tVariants}>
             {links.map((link) => (
-              <Link href={link.href}>{link.name}</Link>
+              <Link href={link.href} target="_blank">
+                {link.name}
+              </Link>
             ))}
           </Links>
         </Container>
